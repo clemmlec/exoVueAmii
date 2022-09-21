@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-4 col-12-medium">
             <!-- Sidebar -->
-              <section class="box">
+              <section class="box left">
                 <header>
                   <h3>Infos</h3>
                 </header>
@@ -16,7 +16,7 @@
                 </p>
               </section>
 
-              <section class="box">
+              <section class="box left">
                 <header>
                   <h3>Dates sorties</h3>
                 </header>

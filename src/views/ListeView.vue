@@ -4,7 +4,7 @@
     <div class="container">
       <!-- Content -->
       <article class="box post">
-        <header>
+        <header class="header">
           <h2>Ma Collection</h2>
           <p>{{result.length}} ammibo</p>
         </header>
@@ -18,8 +18,8 @@
             <tr v-for="amii in result" :key="amii.tail">
               <td>{{amii.character}}</td>
               <td>{{amii.gameSeries}}</td>
-              <td><button @click="gotToDetails(amii.tail)">👀</button></td>
-          </tr>
+              <td><button @click="gotToDetails(amii.tail)">voir</button></td>
+            </tr>
           </table>
         </p>
         
