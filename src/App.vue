@@ -1,13 +1,39 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <div class="homepage is-preload">
+      <div id="page-wrapper">
+        <section id="header">
+          <HeaderCard/>
+          <router-view/>
+          
+        </section>
+        <FooterCard/>
+      </div>
+    </div>
   </div>
 </template>
 
+<script>
+
+  import HeaderCard from './components/HeaderCard'
+  import FooterCard from './components/FooterCard'
+  
+  export default {
+    name: "App",
+    components: {
+      HeaderCard,
+      FooterCard
+    },
+    data: () => ({
+  
+    }),
+    methods: {
+      
+        
+    },
+  };
+  
+  </script>
 <style>
 @import url(./assets/css/fontawesome-all.min.css);
 @import url(./assets/css/main.css);
