@@ -8,7 +8,7 @@
           
           <header>
             <h2>Ma Collection</h2>
-            <p>(ici le nombre d'amiibo)</p>
+            <p>{{result.length}} ammibo</p>
           </header>
           <p>
             <table>
@@ -17,16 +17,11 @@
                 <th>game Series</th>
                 <th>Action</th>
               </tr>
-              <tr>
-                <td>Mario</td>
-                <td>Super Mario</td>
-                <td><button>voir</button></td>
-              </tr>
-              <tr>
-                <td>Luigi</td>
-                <td>Super Mario</td>
-                <td><button>voir</button></td>
-              </tr>
+              <tr v-for="amii in result" :key="amii.tail">
+                <td>{{amii.character}}</td>
+                <td>{{amii.gameSeries}}</td>
+                <td><button @click="gotToDetails(amii.tail)">👀</button></td>
+            </tr>
             </table>
           </p>
           
@@ -36,3 +31,30 @@
   </section>
 
 </template>
+<script>
+  import axios from 'axios'
+  
+  const API_AMII = 'https://www.amiiboapi.com/api/amiibo/';
+  
+  export default {
+    name: 'ListeView',
+    data:()=>({
+      result:[]
+    }),
+  
+    methods:{
+      async getAmii(){
+        const req = await axios.get(API_AMII);
+        this.result=req.data.amiibo
+  
+      },
+      gotToDetails(id){
+        this.$router.push({name:'details', params:{id:id}})
+      }
+    },
+    async created() {
+      await this.getAmii()
+    },
+    
+  }
+  </script>
