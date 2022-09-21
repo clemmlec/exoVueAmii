@@ -10,37 +10,19 @@
     <!-- Intro -->
     <section id="intro" class="container">
       <div class="row">
-        <div class="col-4 col-12-medium">
-          <section class="middle">
-            <img src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_00000000-00000002.png" />
+        <div class="col-4 col-12-medium" v-for="amii in result" :key="amii.tail">
+          <section class="middle" >
+            <img  @click="gotToDetails(amii.tail)" class="pointer" :src="amii.image" />
             <header>
-              <h2>character</h2>
+              <h2>{{amii.character}}</h2>
             </header>
-            <p>gameSeries</p>
-          </section>
-        </div>
-        <div class="col-4 col-12-medium">
-          <section class="middle">
-            <img src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_00000000-00000002.png" />
-            <header>
-              <h2>character</h2>
-            </header>
-            <p>gameSeries</p>
-          </section>
-        </div>
-        <div class="col-4 col-12-medium">
-          <section class="middle">
-            <img src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_00000000-00000002.png" />
-            <header>
-              <h2>character</h2>
-            </header>
-            <p>gameSeries</p>
+            <p>{{amii.gameSeries}}</p>
           </section>
         </div>
       </div>
       <footer>
         <ul class="actions">
-          <li><a href="liste.html" class="button large">Liste complète</a></li>
+          <li><router-link to="/liste" class="button large">Liste Amiibo</router-link></li>
         </ul>
       </footer>
     </section>
@@ -49,13 +31,30 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
+import axios from 'axios'
+  
+  const API_AMII = 'https://www.amiiboapi.com/api/amiibo/?type=Figure';
 
 export default {
   name: 'HomeView',
-  components: {
-
-  }
+  data:()=>({
+      result:[]
+    }),
+  
+    methods:{
+      async getAmii(){
+        const req = await axios.get(API_AMII);
+        this.result=req.data.amiibo
+        let x = Math.random()*this.result.length
+        this.result = this.result.slice(x,x+3)
+      },
+      gotToDetails(id){
+        this.$router.push({name:'details', params:{id:id}})
+      }
+    },
+    async created() {
+      await this.getAmii()
+    },
 }
 </script>

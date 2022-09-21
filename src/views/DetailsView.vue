@@ -59,7 +59,7 @@
   const API_AMII = 'https://www.amiiboapi.com/api/amiibo';
   
   export default {
-    name: 'ListeView',
+    name: 'DetailsView',
     data:()=>({
       amii:[]
     }),
