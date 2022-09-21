@@ -4,7 +4,7 @@
     <div class="container">
       <!-- Content -->
       <article class="box post">
-        <header>
+        <header class="header">
           <h2>Ma Collection</h2>
           <p>{{result.length}} ammibo</p>
         </header>

@@ -2072,7 +2072,10 @@ input, select, textarea {
 		padding: 5em 0 4em 0;
 		text-align: center;
 	}
-	#header header{
+	#header .header{
+		text-align: left;
+	}
+	#header .left{
 		text-align: left;
 	}
 
