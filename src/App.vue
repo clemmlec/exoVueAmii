@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <div class="homepage is-preload">
+      <div id="page-wrapper">
+        <section id="header">
+          <HeaderCard/>
+          <router-view/>
+          
+        </section>
+        <FooterCard/>
+      </div>
+    </div>
   </div>
 </template>
 
+<script>
+
+  import HeaderCard from './components/HeaderCard'
+  import FooterCard from './components/FooterCard'
+  
+  export default {
+    name: "App",
+    components: {
+      HeaderCard,
+      FooterCard
+    },
+    data: () => ({
+  
+    }),
+    methods: {
+      
+        
+    },
+  };
+  
+  </script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import url(./assets/css/fontawesome-all.min.css);
+@import url(./assets/css/main.css);
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
