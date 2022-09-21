@@ -52,9 +52,6 @@ export default {
         let x = parseInt(Math.random()*(this.result.length-3))
         this.result = this.result.slice(x,x+3)
       },
-      gotToDetails(id){
-        this.$router.push({name:'details', params:{id:id}})
-      }
     },
     async created() {
       await this.getAmii()
