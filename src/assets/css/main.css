@@ -1511,6 +1511,7 @@ input, select, textarea {
 
 		table td {
 			padding: 0.5em 1em 0.5em 1em;
+			text-align: left;
 		}
 
 		table th {
@@ -2070,6 +2071,9 @@ input, select, textarea {
 		border-bottom: solid 1px #ccc;
 		padding: 5em 0 4em 0;
 		text-align: center;
+	}
+	#header header{
+		text-align: left;
 	}
 
 		#header h1 {
