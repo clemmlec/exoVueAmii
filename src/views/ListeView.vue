@@ -2,31 +2,28 @@
   <!-- Main -->
   <section id="main">
     <div class="container">
-
       <!-- Content -->
-        <article class="box post">
-          
-          <header>
-            <h2>Ma Collection</h2>
-            <p>{{result.length}} ammibo</p>
-          </header>
-          <p>
-            <table>
-              <tr>
-                <th>Character</th>
-                <th>game Series</th>
-                <th>Action</th>
-              </tr>
-              <tr v-for="amii in result" :key="amii.tail">
-                <td>{{amii.character}}</td>
-                <td>{{amii.gameSeries}}</td>
-                <td><button @click="gotToDetails(amii.tail)">👀</button></td>
+      <article class="box post">
+        <header>
+          <h2>Ma Collection</h2>
+          <p>{{result.length}} ammibo</p>
+        </header>
+        <p>
+          <table>
+            <tr>
+              <th>Character</th>
+              <th>game Series</th>
+              <th>Action</th>
             </tr>
-            </table>
-          </p>
-          
-        </article>
-
+            <tr v-for="amii in result" :key="amii.tail">
+              <td>{{amii.character}}</td>
+              <td>{{amii.gameSeries}}</td>
+              <td><button @click="gotToDetails(amii.tail)">👀</button></td>
+          </tr>
+          </table>
+        </p>
+        
+      </article>
     </div>
   </section>
 

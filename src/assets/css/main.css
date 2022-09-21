@@ -2910,3 +2910,7 @@ input, select, textarea {
 	.pointer{
 		cursor: pointer;
 	}
+
+	img{
+		max-height: 350px;
+	}

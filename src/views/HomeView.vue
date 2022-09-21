@@ -10,15 +10,14 @@
     <!-- Intro -->
     <section id="intro" class="container">
       <div class="row">
-        <div class="col-4 col-12-medium" v-for="amii in result" :key="amii.tail">
-          <section class="middle" >
-            <img  @click="gotToDetails(amii.tail)" class="pointer" :src="amii.image" />
-            <header>
-              <h2>{{amii.character}}</h2>
-            </header>
-            <p>{{amii.gameSeries}}</p>
-          </section>
-        </div>
+        <MignatureCard v-for="amii in result" 
+          :key="amii.tail"
+          :tail="amii.tail"
+          :character="amii.character"
+          :gameSeries="amii.gameSeries"
+          :image="amii.image"
+        />
+        
       </div>
       <footer>
         <ul class="actions">
@@ -33,20 +32,24 @@
 <script>
 
 import axios from 'axios'
-  
+import MignatureCard from '@/components/MignatureCard.vue';  
   const API_AMII = 'https://www.amiiboapi.com/api/amiibo/?type=Figure';
 
 export default {
   name: 'HomeView',
+  components: {
+    MignatureCard
+  },
   data:()=>({
-      result:[]
+      result:[],
+      
     }),
   
     methods:{
       async getAmii(){
         const req = await axios.get(API_AMII);
         this.result=req.data.amiibo
-        let x = Math.random()*this.result.length
+        let x = parseInt(Math.random()*(this.result.length-3))
         this.result = this.result.slice(x,x+3)
       },
       gotToDetails(id){
